@@ -1,0 +1,102 @@
+{
+    "name": "ghostwriter/wip",
+    "description": "Here be dragons",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Nathanael Esayeas",
+            "email": "nathanael.esayeas@protonmail.com",
+            "homepage": "https://github.com/ghostwriter",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/ghostwriter/wip",
+    "support": {
+        "issues": "https://github.com/ghostwriter/wip/issues",
+        "forum": "https://github.com/ghostwriter/wip/discussions",
+        "source": "https://github.com/ghostwriter/wip",
+        "docs": "https://github.com/ghostwriter/wip",
+        "rss": "https://github.com/ghostwriter/wip/releases.atom"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/ghostwriter"
+        }
+    ],
+    "require": {
+        "php": ">=7.4,<8.2"
+    },
+    "require-dev": {
+        "laminas/laminas-coding-standard": "^2.3.0",
+        "nikic/php-parser": "^4.13.2",
+        "phpbench/phpbench": "^1.2.5",
+        "phpunit/phpunit": "^9.5.20",
+        "psalm/plugin-phpunit": "^0.16.1",
+        "roave/infection-static-analysis-plugin": "^1.18.0",
+        "roave/security-advisories": "dev-latest",
+        "vimeo/psalm": "^4.22.0"
+    },
+    "replace": {},
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "files": [
+            "src/constants.php",
+            "src/functions.php"
+        ],
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "infection/extension-installer": true
+        },
+        "classmap-authoritative": true,
+        "discard-changes": true,
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "prepend-autoloader": true,
+        "process-timeout": 5000,
+        "sort-packages": true
+    },
+    "scripts": {
+        "check": [
+            "@format",
+            "@cs-check",
+            "@cs-fix",
+            "@psalm",
+            "@infection",
+            "@phpbench",
+            "@test"
+        ],
+        "clean": [
+            "@format",
+            "@cs-fix",
+            "@psalm"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "format": "composer normalize --no-check-lock --no-update-lock",
+        "infection": [
+            "@putenv XDEBUG_MODE=coverage",
+            "roave-infection-static-analysis-plugin"
+        ],
+        "phpbench": "phpbench run",
+        "psalm": "psalm",
+        "psalm-baseline": "psalm --set-baseline=psalm-baseline.xml",
+        "psalm-fix-all": "psalm --alter --issues=all",
+        "test": "phpunit --colors=always --testdox --stop-on-failure",
+        "test-coverage": [
+            "@putenv XDEBUG_MODE=coverage",
+            "phpunit --color --coverage-clover clover.xml"
+        ]
+    }
+}
