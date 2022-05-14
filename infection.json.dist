@@ -4,7 +4,10 @@
         "directories": [
             "src"
         ],
-        "excludes": []
+        "excludes": [
+            "tests/Fixture",
+            "vendor"
+        ]
     },
     "mutators": {
         "@default": true
