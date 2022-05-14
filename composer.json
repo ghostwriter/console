@@ -1,6 +1,6 @@
 {
     "name": "ghostwriter/console",
-    "description": "Micro-framework for Console Applicationss.",
+    "description": "Micro-framework for Console Applications.",
     "license": "BSD-3-Clause",
     "type": "library",
     "keywords": [
