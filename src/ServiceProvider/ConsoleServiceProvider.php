@@ -22,7 +22,7 @@ final class ConsoleServiceProvider implements ServiceProviderInterface
         $container->extend(
             ListenerProvider::class,
             static function (ContainerInterface $container, object $listenerProviderInterface) {
-                // @var ListenerProvider $listenerProviderInterface
+                /** @var ListenerProvider $listenerProviderInterface */
                 $listenerProviderInterface->addSubscriber($container->get(ConsoleSubscriber::class));
 
                 $container->set(
