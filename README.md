@@ -8,6 +8,10 @@
 
 Micro-framework for Console Applications.
 
+> **Warning**
+> 
+> This project is not finished yet, work in progress.
+
 ## Installation
 
 You can install the package via composer:
