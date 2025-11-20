@@ -6,10 +6,10 @@
     "description": "Major release – targeting 1.0.x branch (semantic version: 1.0.0)"
     "state": "open"
 "repository":
-  "name": "wip"
+  "name": "console"
   "description": "[WIP] Template for PHP projects"
-  "topics": "ghostwriter, package-template, php, template, template-repository, wip"
-  "homepage": "https://github.com/ghostwriter/wip"
+  "topics": "ghostwriter, package-template, php, template, template-repository, console"
+  "homepage": "https://github.com/ghostwriter/console"
   "default_branch": "0.1.x"
   "allow_auto_merge": true
   "allow_forking": true

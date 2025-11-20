@@ -1,11 +1,11 @@
 {
-    "name": "ghostwriter/wip",
-    "description": "Here be dragons",
+    "name": "ghostwriter/console",
+    "description": "console application skeleton built on top of symfony/console",
     "license": "BSD-4-Clause",
     "type": "library",
     "keywords": [
         "ghostwriter",
-        "wip"
+        "console"
     ],
     "authors": [
         {
@@ -15,12 +15,12 @@
             "role": "Developer"
         }
     ],
-    "homepage": "https://github.com/ghostwriter/wip",
+    "homepage": "https://github.com/ghostwriter/console",
     "support": {
-        "issues": "https://github.com/ghostwriter/wip/issues",
-        "source": "https://github.com/ghostwriter/wip",
-        "rss": "https://github.com/ghostwriter/wip/releases.atom",
-        "security": "https://github.com/ghostwriter/wip/security/advisories/new"
+        "issues": "https://github.com/ghostwriter/console/issues",
+        "source": "https://github.com/ghostwriter/console",
+        "rss": "https://github.com/ghostwriter/console/releases.atom",
+        "security": "https://github.com/ghostwriter/console/security/advisories/new"
     },
     "funding": [
         {
@@ -37,18 +37,7 @@
     "require": {
         "php": "~8.4.0 || ~8.5.0",
         "ext-mbstring": "*",
-        "ghostwriter/case-converter": "^2.1.0",
-        "ghostwriter/clock": "^3.0.1",
-        "ghostwriter/collection": "^2.0.0",
-        "ghostwriter/config": "^2.0.0",
-        "ghostwriter/container": "^5.0.1",
-        "ghostwriter/event-dispatcher": "^5.0.3",
-        "ghostwriter/filesystem": "^0.1.1",
-        "ghostwriter/json": "^3.0.0",
-        "ghostwriter/option": "^2.0.0",
-        "ghostwriter/result": "^2.0.0",
-        "ghostwriter/shell": "^0.1.0",
-        "ghostwriter/uuid": "^1.0.3"
+        "symfony/console": "^7.3.6"
     },
     "require-dev": {
         "ext-xdebug": "*",
@@ -60,12 +49,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Ghostwriter\\Wip\\": "src"
-        },
-        "files": [
-            "src/constants.php",
-            "src/functions.php"
-        ]
+            "Ghostwriter\\Console\\": "src"
+        }
     },
     "autoload-dev": {
         "psr-4": {
@@ -77,10 +62,6 @@
         ],
         "exclude-from-classmap": ["/tests/"]
     },
-    "bin": [
-        "bin/console",
-        "bin/console.php"
-    ],
     "config": {
         "allow-plugins": {
             "ghostwriter/coding-standard": true
@@ -98,6 +79,13 @@
         "process-timeout": 5000,
         "sort-packages": true,
         "use-parent-dir": false
+    },
+    "extra": {
+        "ghostwriter": {
+            "container": {
+                "definition": "Ghostwriter\\Console\\Container\\ConsoleDefinition"
+            }
+        }
     },
     "scripts": {
         "cache:clear": "rm -rf ./.cache/*",
