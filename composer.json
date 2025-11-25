@@ -37,6 +37,7 @@
     "require": {
         "php": "~8.4.0 || ~8.5.0",
         "ext-mbstring": "*",
+        "ghostwriter/config": "^2.0.1",
         "ghostwriter/container": "^6.0.1",
         "symfony/console": "^7.3.6"
     },
