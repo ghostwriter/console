@@ -87,6 +87,10 @@
             "container": {
                 "definition": "Ghostwriter\\Console\\Container\\ConsoleDefinition"
             }
+        },
+        "thanks": {
+            "url": "https://github.com/ghostwriter/console",
+            "name": "ghostwriter/console"
         }
     },
     "scripts": {
