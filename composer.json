@@ -39,14 +39,14 @@
         "ext-mbstring": "*",
         "ghostwriter/config": "^2.0.1",
         "ghostwriter/container": "^6.0.1",
-        "symfony/console": "^7.3.6"
+        "symfony/console": "^7.3.6 || ^8.0.0"
     },
     "require-dev": {
         "ext-xdebug": "*",
         "ghostwriter/coding-standard": "dev-main",
         "mockery/mockery": "^1.6.12",
         "phpunit/phpunit": "^12.4.4",
-        "symfony/var-dumper": "^7.3.5"
+        "symfony/var-dumper": "^7.4.0"
     },
     "prefer-stable": true,
     "autoload": {
