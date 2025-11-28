@@ -89,8 +89,8 @@
             }
         },
         "thanks": {
-            "url": "https://github.com/ghostwriter/console",
-            "name": "ghostwriter/console"
+            "name": "ghostwriter/console",
+            "url": "https://github.com/ghostwriter/console"
         }
     },
     "scripts": {
