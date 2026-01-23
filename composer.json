@@ -1,7 +1,7 @@
 {
     "name": "ghostwriter/console",
     "description": "console application skeleton built on top of symfony/console",
-    "license": "BSD-4-Clause",
+    "license": "BSD-3-Clause",
     "type": "library",
     "keywords": [
         "ghostwriter",
