@@ -32,8 +32,8 @@
     "require": {
         "php": "~8.4.0 || ~8.5.0",
         "ext-mbstring": "*",
-        "ghostwriter/config": "^2.0.2",
-        "ghostwriter/container": "^6.1.0",
+        "ghostwriter/config": "^2.1.0",
+        "ghostwriter/container": "^6.1.1",
         "symfony/console": "^8.0.8"
     },
     "require-dev": {
@@ -80,7 +80,7 @@
     "extra": {
         "ghostwriter": {
             "container": {
-                "definition": "Ghostwriter\\Console\\Container\\ConsoleDefinition"
+                "provider": ["Ghostwriter\\Console\\Container\\ConsoleProvider"]
             }
         },
         "thanks": {

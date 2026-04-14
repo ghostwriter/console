@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Container;
 
-use Ghostwriter\Console\Container\ConsoleDefinition;
+use Ghostwriter\Console\Container\ConsoleProvider;
 use Ghostwriter\Console\Container\Symfony\Console\ApplicationExtension;
 use Ghostwriter\Console\Container\Symfony\Console\ApplicationFactory;
 use Ghostwriter\Console\Container\Symfony\Console\CommandLoader\ContainerCommandLoaderFactory;
 use Ghostwriter\Container\Interface\ContainerInterface;
+use Ghostwriter\Container\Interface\Service\ProviderInterface;
+use Ghostwriter\Container\Service\Provider\AbstractProvider;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;
@@ -22,18 +24,10 @@ use Symfony\Component\Console\Style\StyleInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Tests\Unit\AbstractTestCase;
 
-#[CoversClass(ConsoleDefinition::class)]
-final class ConsoleDefinitionTest extends AbstractTestCase
+#[CoversClass(ConsoleProvider::class)]
+final class ConsoleProviderTest extends AbstractTestCase
 {
-    public function testImplementsDefinitionInterface(): void
-    {
-        $this->assertInstanceOf(
-            ConsoleDefinition::class,
-            new ConsoleDefinition(),
-        );
-    }
-
-    public function testInvoke(): void
+    public function testConsoleProviderRegister(): void
     {
         $container = $this->createMock(ContainerInterface::class);
 
@@ -59,6 +53,16 @@ final class ConsoleDefinitionTest extends AbstractTestCase
             ])
             ->seal();
 
-        (new ConsoleDefinition())($container);
+        (new ConsoleProvider())->register($container);
+    }
+
+    public function testExtendsAbstractProvider(): void
+    {
+        self::assertInstanceOf(AbstractProvider::class, new ConsoleProvider());
+    }
+
+    public function testImplementsProviderInterface(): void
+    {
+        self::assertInstanceOf(ProviderInterface::class, new ConsoleProvider());
     }
 }
