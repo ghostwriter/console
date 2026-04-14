@@ -56,7 +56,8 @@ final class ConsoleDefinitionTest extends AbstractTestCase
             ->willReturnMap([
                 [Application::class, ApplicationFactory::class],
                 [ContainerCommandLoader::class, ContainerCommandLoaderFactory::class],
-            ]);
+            ])
+            ->seal();
 
         (new ConsoleDefinition())($container);
     }

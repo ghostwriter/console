@@ -35,6 +35,20 @@ final readonly class ContainerCommandLoaderFactory implements FactoryInterface
             $commands = [];
         }
 
-        return new ContainerCommandLoader($container, $commands);
+        return new ContainerCommandLoader(new readonly class ($container) implements \Psr\Container\ContainerInterface
+        {
+            public function __construct(private  ContainerInterface $container) {}
+            #[\Override]
+            public function get(string $id)
+            {
+                return $this->container->get($id);
+            }
+
+            #[\Override]
+            public function has(string $id): bool
+            {
+                return true;
+            }
+        }, $commands);
     }
 }
