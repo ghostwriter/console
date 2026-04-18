@@ -28,25 +28,20 @@
             "url": "https://github.com/sponsors/ghostwriter"
         }
     ],
-    "_comment": [
-        "#BlackLivesMatter",
-        "#FreePalestine",
-        "#StandWithUkraine",
-        "#StopGenocide"
-    ],
+    "_comment": ["#BlackLivesMatter", "#FreePalestine", "#StandWithIran", "#StandWithUkraine", "#StopGenocide"],
     "require": {
         "php": "~8.4.0 || ~8.5.0",
         "ext-mbstring": "*",
-        "ghostwriter/config": "^2.0.2",
-        "ghostwriter/container": "^6.0.1",
-        "symfony/console": "^8.0.4"
+        "ghostwriter/config": "^2.1.1",
+        "ghostwriter/container": "^6.1.1",
+        "symfony/console": "^8.0.8"
     },
     "require-dev": {
         "ext-xdebug": "*",
         "ghostwriter/coding-standard": "dev-main",
         "mockery/mockery": "^1.6.12",
-        "phpunit/phpunit": "^12.5.7",
-        "symfony/var-dumper": "^8.0.4"
+        "phpunit/phpunit": "^13.1.6",
+        "symfony/var-dumper": "^8.0.8"
     },
     "prefer-stable": true,
     "autoload": {
@@ -56,7 +51,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "": "tests/Fixture/",
             "Tests\\": "tests/"
         },
         "files": [
@@ -66,7 +60,8 @@
     },
     "config": {
         "allow-plugins": {
-            "ghostwriter/coding-standard": true
+            "ghostwriter/coding-standard": true,
+            "infection/extension-installer": true
         },
         "bump-after-update": false,
         "classmap-authoritative": false,
@@ -85,7 +80,7 @@
     "extra": {
         "ghostwriter": {
             "container": {
-                "definition": "Ghostwriter\\Console\\Container\\ConsoleDefinition"
+                "provider": ["Ghostwriter\\Console\\Container\\ConsoleProvider"]
             }
         },
         "thanks": {
