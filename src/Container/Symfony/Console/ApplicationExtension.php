@@ -40,6 +40,10 @@ final readonly class ApplicationExtension implements ExtensionInterface
         $service->setCatchExceptions($consoleConfiguration->get('catch_exceptions', false));
         $service->setCommandLoader($container->get(CommandLoaderInterface::class));
 
+        foreach ($consoleConfiguration->get('command', []) as $command) {
+            $service->add($container->get($command));
+        }
+
         $defaultCommand = $consoleConfiguration->get('default_command', false);
         if (! is_string($defaultCommand)) {
             return;
