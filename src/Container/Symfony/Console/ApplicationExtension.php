@@ -41,7 +41,7 @@ final readonly class ApplicationExtension implements ExtensionInterface
         $service->setCommandLoader($container->get(CommandLoaderInterface::class));
 
         foreach ($consoleConfiguration->get('command', []) as $command) {
-            $service->add($container->get($command));
+            $service->addCommand($container->get($command));
         }
 
         $defaultCommand = $consoleConfiguration->get('default_command', false);
