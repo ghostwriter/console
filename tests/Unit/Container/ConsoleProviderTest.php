@@ -33,13 +33,13 @@ final class ConsoleProviderTest extends AbstractTestCase
 
         $container->expects(self::exactly(5))
             ->method('alias')
-            ->willReturnMap([
-                [ArgvInput::class, InputInterface::class],
-                [ConsoleOutput::class, OutputInterface::class],
-                [ConsoleOutputInterface::class, OutputInterface::class],
-                [ContainerCommandLoader::class, CommandLoaderInterface::class],
-                [SymfonyStyle::class, StyleInterface::class],
-            ]);
+            ->withParameterSetsInAnyOrder(
+                [CommandLoaderInterface::class, ContainerCommandLoader::class],
+                [ConsoleOutputInterface::class,ConsoleOutput::class],
+                [InputInterface::class,ArgvInput::class],
+                [OutputInterface::class, ConsoleOutputInterface::class],
+                [StyleInterface::class , SymfonyStyle::class],
+            );
 
         $container->expects(self::once())
             ->method('extend')
@@ -47,10 +47,10 @@ final class ConsoleProviderTest extends AbstractTestCase
 
         $container->expects(self::exactly(2))
             ->method('factory')
-            ->willReturnMap([
+            ->withParameterSetsInAnyOrder(
                 [Application::class, ApplicationFactory::class],
                 [ContainerCommandLoader::class, ContainerCommandLoaderFactory::class],
-            ])
+            )
             ->seal();
 
         (new ConsoleProvider())->register($container);
