@@ -31,14 +31,12 @@ final class ConsoleProvider extends AbstractProvider
     #[Override]
     public function register(BuilderInterface $builder): void
     {
-        $builder->alias(InputInterface::class, ArgvInput::class);
-        $builder->alias(ConsoleOutputInterface::class, ConsoleOutput::class);
-        $builder->alias(OutputInterface::class, ConsoleOutputInterface::class);
         $builder->alias(CommandLoaderInterface::class, ContainerCommandLoader::class);
+        $builder->alias(ConsoleOutputInterface::class, ConsoleOutput::class);
+        $builder->alias(InputInterface::class, ArgvInput::class);
+        $builder->alias(OutputInterface::class, ConsoleOutputInterface::class);
         $builder->alias(StyleInterface::class, SymfonyStyle::class);
-
         $builder->extend(Application::class, ApplicationExtension::class);
-
         $builder->factory(Application::class, ApplicationFactory::class);
         $builder->factory(ContainerCommandLoader::class, ContainerCommandLoaderFactory::class);
     }
