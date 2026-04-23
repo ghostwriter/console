@@ -31,27 +31,14 @@ final class ConsoleProviderTest extends AbstractTestCase
     {
         $container = $this->createMock(ContainerInterface::class);
 
-        $container->expects(self::exactly(5))
+        $container->expects(self::exactly(4))
             ->method('alias')
             ->withParameterSetsInAnyOrder(
-                [CommandLoaderInterface::class, ContainerCommandLoader::class],
-                [ConsoleOutputInterface::class,ConsoleOutput::class],
-                [InputInterface::class,ArgvInput::class],
+                [ConsoleOutputInterface::class, ConsoleOutput::class],
+                [InputInterface::class, ArgvInput::class],
                 [OutputInterface::class, ConsoleOutputInterface::class],
-                [StyleInterface::class , SymfonyStyle::class],
-            );
-
-        $container->expects(self::once())
-            ->method('extend')
-            ->with(Application::class, ApplicationExtension::class);
-
-        $container->expects(self::exactly(2))
-            ->method('factory')
-            ->withParameterSetsInAnyOrder(
-                [Application::class, ApplicationFactory::class],
-                [ContainerCommandLoader::class, ContainerCommandLoaderFactory::class],
-            )
-            ->seal();
+                [StyleInterface::class, SymfonyStyle::class],
+            )->seal();
 
         (new ConsoleProvider())->register($container);
     }
