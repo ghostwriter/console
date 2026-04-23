@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace Ghostwriter\Console\Container;
 
-use Ghostwriter\Console\Container\Symfony\Console\ApplicationExtension;
 use Ghostwriter\Console\Container\Symfony\Console\ApplicationFactory;
 use Ghostwriter\Console\Container\Symfony\Console\CommandLoader\ContainerCommandLoaderFactory;
-use Ghostwriter\Container\Interface\BuilderInterface;
+use Ghostwriter\Container\Interface\Service\FactoryInterface;
 use Ghostwriter\Container\Service\Provider\AbstractProvider;
-use Override;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\CommandLoader\CommandLoaderInterface;
 use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
@@ -20,24 +18,21 @@ use Symfony\Component\Console\Output\ConsoleOutputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\StyleInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Throwable;
 
 /**
  * @see ConsoleProviderTest
  */
 final class ConsoleProvider extends AbstractProvider
 {
-    /** @throws Throwable */
-    #[Override]
-    public function register(BuilderInterface $builder): void
-    {
-        $builder->alias(CommandLoaderInterface::class, ContainerCommandLoader::class);
-        $builder->alias(ConsoleOutputInterface::class, ConsoleOutput::class);
-        $builder->alias(InputInterface::class, ArgvInput::class);
-        $builder->alias(OutputInterface::class, ConsoleOutputInterface::class);
-        $builder->alias(StyleInterface::class, SymfonyStyle::class);
-        $builder->extend(Application::class, ApplicationExtension::class);
-        $builder->factory(Application::class, ApplicationFactory::class);
-        $builder->factory(ContainerCommandLoader::class, ContainerCommandLoaderFactory::class);
-    }
+    /**
+     * alias => service.
+     *
+     * @var array<class-string,class-string>
+     */
+    public const array ALIAS = [
+        ConsoleOutputInterface::class => ConsoleOutput::class,
+        InputInterface::class => ArgvInput::class,
+        OutputInterface::class => ConsoleOutputInterface::class,
+        StyleInterface::class => SymfonyStyle::class,
+    ];
 }
