@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d16b334683a394468f050a6e59784202",
+    "content-hash": "8c1759505089810e175a272d9f53fd47",
     "packages": [
         {
             "name": "ghostwriter/config",
@@ -216,16 +216,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v8.0.8",
+            "version": "v8.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "5b66d385dc58f69652e56f78a4184615e3f2b7f7"
+                "reference": "7113778e2e91f4709cb3194a75dfa9c0d028d94d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/5b66d385dc58f69652e56f78a4184615e3f2b7f7",
-                "reference": "5b66d385dc58f69652e56f78a4184615e3f2b7f7",
+                "url": "https://api.github.com/repos/symfony/console/zipball/7113778e2e91f4709cb3194a75dfa9c0d028d94d",
+                "reference": "7113778e2e91f4709cb3194a75dfa9c0d028d94d",
                 "shasum": ""
             },
             "require": {
@@ -282,7 +282,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v8.0.8"
+                "source": "https://github.com/symfony/console/tree/v8.0.9"
             },
             "funding": [
                 {
@@ -302,7 +302,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-03-30T15:14:47+00:00"
+            "time": "2026-04-29T15:02:55+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -891,12 +891,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghostwriter/coding-standard.git",
-                "reference": "523880225461f408e3bf1462cd7f24a4b5bc82aa"
+                "reference": "efd41faf723fc5fc0cecfe4728557acdd242ade3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/523880225461f408e3bf1462cd7f24a4b5bc82aa",
-                "reference": "523880225461f408e3bf1462cd7f24a4b5bc82aa",
+                "url": "https://api.github.com/repos/ghostwriter/coding-standard/zipball/efd41faf723fc5fc0cecfe4728557acdd242ade3",
+                "reference": "efd41faf723fc5fc0cecfe4728557acdd242ade3",
                 "shasum": ""
             },
             "require": {
@@ -947,7 +947,7 @@
                 "ext-zlib": "*",
                 "mockery/mockery": "^1.6.12",
                 "php": "~8.4.0 || ~8.5.0",
-                "phpunit/phpunit": "^13.1.7",
+                "phpunit/phpunit": "^13.1.8",
                 "symfony/var-dumper": "^8.0.8"
             },
             "conflict": {
@@ -1010,7 +1010,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-04-26T15:04:56+00:00"
+            "time": "2026-05-01T06:48:35+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
