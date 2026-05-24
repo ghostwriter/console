@@ -35,10 +35,6 @@
 "repository":
   "name": "console"
   "description": "console application skeleton built on top of symfony/console"
-  "topics":
-    - "ghostwriter"
-    - "console"
-    - "php"
   "homepage": "https://github.com/ghostwriter/console"
   "default_branch": "0.2.x"
   "allow_auto_merge": true
