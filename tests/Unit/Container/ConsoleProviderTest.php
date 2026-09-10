@@ -21,9 +21,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Tests\Unit\AbstractTestCase;
 use Throwable;
 
-#[CoversClass(ConsoleProvider::class)]
-#[CoversClassesThatExtendClass(AbstractProvider::class)]
-#[CoversClassesThatImplementInterface(ProviderInterface::class)]
 #[CoversNothing]
 final class ConsoleProviderTest extends AbstractTestCase
 {
