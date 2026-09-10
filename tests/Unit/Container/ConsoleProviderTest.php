@@ -8,7 +8,9 @@ use Ghostwriter\Console\Container\ConsoleProvider;
 use Ghostwriter\Container\Interface\Service\ProviderInterface;
 use Ghostwriter\Container\Service\Provider\AbstractProvider;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\CoversClassesThatExtendClass;
+use PHPUnit\Framework\Attributes\CoversClassesThatImplementInterface;
+use PHPUnit\Framework\Attributes\CoversNothing;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -20,12 +22,16 @@ use Tests\Unit\AbstractTestCase;
 use Throwable;
 
 #[CoversClass(ConsoleProvider::class)]
+#[CoversClassesThatExtendClass(AbstractProvider::class)]
+#[CoversClassesThatImplementInterface(ProviderInterface::class)]
+#[CoversNothing]
 final class ConsoleProviderTest extends AbstractTestCase
 {
     /** @throws Throwable */
-    #[DataProvider('provideConsoleProviderRegisterCases')]
-    public function testConsoleProviderRegister(object $consoleProvider): void
+    public function testConsoleProviderRegister(): void
     {
+        $consoleProvider = new ConsoleProvider();
+
         self::assertInstanceOf(ProviderInterface::class, $consoleProvider);
 
         self::assertInstanceOf(AbstractProvider::class, $consoleProvider);
@@ -38,11 +44,5 @@ final class ConsoleProviderTest extends AbstractTestCase
         $container->expects('alias')->with(StyleInterface::class, SymfonyStyle::class);
 
         $consoleProvider->register($container);
-    }
-
-    /** @return iterable<string,array{0:ProviderInterface}> */
-    public static function provideConsoleProviderRegisterCases(): iterable
-    {
-        yield ConsoleProvider::class => [new ConsoleProvider()];
     }
 }
